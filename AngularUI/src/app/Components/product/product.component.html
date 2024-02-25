@@ -1,0 +1,101 @@
+<div class="grid-view" *ngIf="view=='grid'">
+<div class="card text-center">
+        <div class="card-header fs-10  text-light bg-dark">
+            Header
+        </div>
+        <div class="overflow-hidden d-flex justify-content-center align-item-center">
+            <img src="../../../assets/{{product.category.category}}/{{product.category.subCategory}}/{{product.productId}}/1.jpg" OpenProduct [productId]="product.productId" alt="Product image" class="card-img-top">
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title title">{{product.title}}</h5>
+            <h6 class="card-subtitle my-2 text-primary">{{product.quantity}} product available</h6>
+            <p class="card-text description">{{product.description}}</p>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-success">{{this.applyDiscount(product.price,product.offer.discount)}}
+                <span class="text-primary">{{product.offer.discount}}%
+                </span>
+            </h5>
+            <h6 class="card-subtitle text-danger text-decoration-line-through">
+                {{product.price}}
+            </h6>
+        </div>
+        <div class="card-footer d-grid  gap-2">
+            <button class="btn btn-outline-success">Add To Cart</button>
+        </div>
+        </div>
+</div>
+<div class="list-view" *ngIf="view=='list'">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-4 overflow-hidden d-flex justify-content-center align-item-center">
+                <img src="../../../assets/{{product.category.category}}/{{product.category.subCategory}}/{{product.productId}}/1.jpg" OpenProduct [productId]="product.productId" alt="Product image" class="card-img-top">
+            </div>
+            <div class="col">
+                <div class="card-header text-center">
+                    Header
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title title">{{product.title}}</h5>
+                    <h6 class="card-subtitle my-2 text-primary">{{product.quantity}} product available</h6>
+                    <p class="card-text description">{{product.description}}</p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-success">{{this.applyDiscount(product.price,product.offer.discount)}}
+
+                        <span class="text-primary">{{product.offer.discount}}%
+                        </span>
+                    </h5>
+                    <h6 class="card-subtitle text-danger text-decoration-line-through">
+                        {{product.price}}
+                    </h6>
+                </div>
+                <div class="card-footer d-grid  gap-2">
+                    <button class="btn btn-outline-success">Add To Cart</button>
+                </div>
+                                    
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="cart-item-view" *ngIf="view=='cartview'">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-4 overflow-hidden d-flex justify-content-center align-item-center">
+                <img src="../../../assets/{{product.category.category}}/{{product.category.subCategory}}/{{product.productId}}/1.jpg" OpenProduct [productId]="product.productId" alt="Product image" class="img-fluid rounded-start">
+            </div>
+            <div class="col-8">
+                <div class="card-body">
+                    <h5 class="card-title title ">{{product.title}}</h5>
+                    <h5 class="card-title text-success">{{this.applyDiscount(product.price,product.offer.discount)}}
+
+                        
+
+                    </h5>
+                    <h6 class="card-subtitle text-danger text-decoration-line-through">
+                        {{product.price}}
+                    </h6>
+                    <span class="text-primary">{{product.quantity}} Product in Stock</span>
+                </div>
+                <div class="card-footer text-muted d-grid gap-2">
+                    <button class="btn btn-outline-danger" type="button">Delete Item From cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cart-item-view" *ngIf="view=='previouscartview'">
+    <div class="card text-center">
+        <div class="overflow-hidden d-flex justify-content-center align-item-center">
+            <img src="../../../assets/{{product.category.category}}/{{product.category.subCategory}}/{{product.productId}}/1.jpg" alt="Product image" class="card-img-top">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title title ">{{product.title}}</h5>
+            
+        </div>
+    </div>
+
+</div>

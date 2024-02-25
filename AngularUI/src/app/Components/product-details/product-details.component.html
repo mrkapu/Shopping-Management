@@ -1,0 +1,94 @@
+<div class="my-container mx-auto border " >
+    <div class="row g-0">
+        <div class="col-4">
+            <div class="d-flex justify-content-center align-item-center">
+                <!-- <img src="../../../assets/{{product.category.category}}/{{product.category.subCategory}}/{{product.productId}}/{{imageIndex}}.jpg" OpenProduct [productId]="product.productId" alt="Product image" class="card-img-top"> -->
+                <img src="../../../assets/{{products.category.category}}/{{products.category.subCategory}}/{{products.productId}}/{{imageIndex}}.jpg" alt="" class="w-100">
+            </div>
+            <div class="image-thumbnails mt-4 d-flex justify-content-between align-item-center">
+                <img src="../../../assets/{{products.category.category}}/{{products.category.subCategory}}/{{products.productId}}/2.jpg" (mouseover)="imageIndex=1" (click)="imageIndex=1" alt="">
+                <img src="../../../assets/{{products.category.category}}/{{products.category.subCategory}}/{{products.productId}}/3.jpg" (mouseover)="imageIndex=2" (click)="imageIndex=2" alt="">
+                <img src="../../../assets/{{products.category.category}}/{{products.category.subCategory}}/{{products.productId}}/4.jpg" (mouseover)="imageIndex=3" (click)="imageIndex=3">
+                <img src="../../../assets/{{products.category.category}}/{{products.category.subCategory}}/{{products.productId}}/5.jpg" (mouseover)="imageIndex=4" (click)="imageIndex=4">
+                <img src="../../../assets/{{products.category.category}}/{{products.category.subCategory}}/{{products.productId}}/6.jpg" (mouseover)="imageIndex=5" (click)="imageIndex=5">
+                
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    <span>{{products.title |titlecase}}</span>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title text-success">{{applyDiscount(products.price,products.offer.discount)}}
+                        <span class="text-primary">{{products.offer.discount}} %
+                        </span>
+                    </h2>
+                    <h5 class="card-subtitle text-danger text-decoration-line-through">
+                        {{products.price}}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle my-2 text-primary">{{products.quantity}} product available</h6>
+                    <div class=" d-grid  gap-2">
+                        <button class="btn btn-outline-success">Add To Cart</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-text">Description</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-action" *ngFor="let item of products.description.split('. ')">
+                            {{item}}</li>
+                    </ul>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    <!-- Suggested Product -->
+    <div class="row g-0">
+        <div class="col-12 ps-5 pt-4 pb-3">
+            <h5 class="border border-secondary text-center  py-2 my-rounded-corner " style="width: 30%;margin-left: 10px;"> Suggested Product</h5>
+        </div>
+        <div class="col-12">
+            <app-suggested-product [category]="products.category"></app-suggested-product>
+        </div>
+    </div>
+    <!-- Review -->
+    <div class="row g-0 mt-5 mb-5">
+        <div class="col p-3">
+            <h3> Give Your Review Here </h3>
+            <h5 class="mt-4">Write Review Here</h5>
+            <textarea placeholder="Write Review..." class="w-75 p-2" ></textarea>
+            <div class="d-flex algin-item-start">
+                <button class="btn btn-outline-secondary mt-4 me-5"> Send Review</button>
+            </div>
+            <div>
+                <h6 class="text-danger mt-4"> Login first! then send review</h6>
+                <h6 class="text-danger">Review cannot be empty</h6>
+                <h6 class="text-success">Send Review Success !</h6>
+                  
+            </div>
+        </div>   
+        
+        <div class="col p-3">
+            <h3>Users Review </h3>
+            <h6 *ngIf="1">No Review Yet!</h6>
+            <div class="card mt-3" *ngFor="let review of [1,2,3]">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="card-text">
+                        Kapil
+                        Mandaviya
+                    </div>
+                    <div class="card-text fst-italic"> 
+                        Reviewed at:<span class="fw-bold">{{"20 oct 2022" | date:"dd-mm-yyyy"}}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">Reviews/div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

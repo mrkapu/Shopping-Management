@@ -1,0 +1,9 @@
+.dropdown-item{
+    background-color: #262a2a;
+    color: white;
+    border-bottom: 1px solid red;
+}
+a {
+    cursor: pointer;
+}
+ 

@@ -1,0 +1,43 @@
+
+<div class="d-flex algin-item-left" style="text-align: left;">
+  <div class="btn-group m-lg-0 p-1">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    View Style
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" [ngClass]="{'active':view=='list'}" (click)="view='list'">List View</a>
+    <a class="dropdown-item" [ngClass]="{'active':view=='grid'}" (click)="view='grid'">Grid View</a>
+  </div>
+</div>
+<!-- Example single danger button -->
+<!-- Example split danger button -->
+<div class="btn-group m-lg-0 p-1">
+    <label   class="btn btn-group  bg-dark text-white" style="cursor: text;">Filter </label>
+    <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Sort By</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" [ngClass]="{'active':sortby=='default'}" (click)="sortby='default';sortProduct(sortby)">Default</a>
+      <a class="dropdown-item" [ngClass]="{'active':sortby=='htl'}" (click)="sortby='htl';sortProduct(sortby)" >Price (High to Low)</a>
+      <a class="dropdown-item" [ngClass]="{'active':sortby=='lth'}" (click)="sortby='lth';sortProduct(sortby)" >Price (Low to High)</a>
+      </div>
+  </div>
+  
+</div>
+
+<div class="border p-5">
+  <div class="grid-view" *ngIf="view=='grid'">
+    <div class="row g-5">
+      <div class="col-3" *ngFor="let products of product">
+        <app-product [product]="products"></app-product>
+      </div>
+    </div>
+  </div>
+  <div class="list-view" *ngIf="view=='list'">
+      <div class="row mb-5" *ngFor  ="let products of product">
+        <app-product [view]="'list'" [product]="products"></app-product>
+      </div>
+  </div>
+</div>
+
+<!-- <button (click)="buttonclick()"> </button> -->
